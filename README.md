@@ -1,25 +1,25 @@
-# Repositório de Atividades Acadêmicas — SENAI
+# Repositório de Projetos e Atividades — SENAI
 
-Este repositório centraliza os projetos, exercícios e artefatos de software desenvolvidos por mim durante o curso técnico no SENAI (Serviço Nacional de Aprendizagem Industrial). O objetivo deste espaço é documentar o progresso acadêmico, aplicar boas práticas de versionamento de código e estruturar um portfólio técnico.
+Este repositório foi criado para guardar todos os projetos, exercícios e códigos que desenvolvo durante o meu curso no SENAI. O objetivo aqui é registar o meu progresso prático, organizar as tarefas das aulas e construir o meu portfólio de programação.
 
 ---
 
-## Tecnologias e Ambiente de Desenvolvimento
+## Ferramentas
 
-O ecossistema técnico utilizado no desenvolvimento das aplicações compreende:
+O ambiente que utilizo para desenvolver os projetos inclui:
 
 * Linguagem de Programação: Java
-* Ambiente de Desenvolvimento (IDE): IntelliJ IDEA
-* Controle de Versão: Git / GitHub
+* IDE: IntelliJ IDEA
+* Controle de Versão: Git e GitHub
 
 ---
 
 ## Estrutura do Projeto
 
-A organização atual dos arquivos no repositório segue a seguinte estrutura:
+A organização das pastas e arquivos no repositório está estruturada da seguinte forma:
 
 ```text
 ├── .idea/          # Configurações internas do ambiente de desenvolvimento (IDE)
-├── src/            # Código-fonte principal do projeto (.java)
-├── .gitignore/     # Arquivo de configuração para ignorar arquivos desnecessários
-└── README.md       # Documentação principal do repositório
+├── src/            # Código-fonte com os arquivos e exercícios em Java
+├── .gitignore/     # Arquivo para evitar o envio de ficheiros desnecessários
+└── README.md       # Documentação principal deste repositório

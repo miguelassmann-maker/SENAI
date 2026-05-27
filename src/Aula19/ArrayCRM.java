@@ -18,7 +18,7 @@ public class ArrayCRM {
         do {
             System.out.println("\n[1] para cadastrar um novo cliente");
             System.out.println("[2] para consultar um cliente");
-            System.out.println("[3] para solicitar emprestimo"); // Adicionado no menu para você conseguir acessar!
+            System.out.println("[3] para solicitar emprestimo");
             System.out.println("[9] Para verificar a versão do sistema");
             System.out.println("[0] Para sair");
             resposta = input.nextInt();
@@ -27,7 +27,7 @@ public class ArrayCRM {
                 case 1:
                     System.out.println("O Id do cadastro deste cliente é");
                     System.out.println(id);
-                    input.nextLine(); // CORREÇÃO: Limpa o buffer do teclado para não pular o nome
+                    input.nextLine();
 
                     System.out.println("Digite o nome do cliente");
                     nomes.add(input.nextLine());
@@ -44,7 +44,6 @@ public class ArrayCRM {
                     System.out.println("Para consultar digite o id do cadastro desejado");
                     int consulta = input.nextInt();
 
-                    // Validação para não estourar erro se digitar um ID que não existe
                     if (consulta >= 0 && consulta < nomes.size()) {
                         System.out.printf("Nome do cliente: %s%n", nomes.get(consulta));
                         System.out.printf("Cpf do cliente: %s%n", cpf.get(consulta));
@@ -53,13 +52,13 @@ public class ArrayCRM {
                     } else {
                         System.out.println("Cliente não encontrado!");
                     }
-                    break; // CORREÇÃO: Faltava o break aqui para não invadir o case 3 automaticamente
+                    break;
 
                 case 3:
                     System.out.println("digite o ID do cliente");
                     int ID = input.nextInt();
 
-                    // Validação para checar se o ID digitado existe nas listas
+
                     if (ID >= 0 && ID < salario.size()) {
                         double salarioCliente = salario.get(ID);
 
@@ -70,7 +69,7 @@ public class ArrayCRM {
                         System.out.println("quantas vezes quer parcelar? (24, 36 ou 48)");
                         int tempo = input.nextInt();
 
-                        // Taxa de juros de 1.8% fixada conforme o enunciado (1.8 / 100 = 0.018)
+
                         double juros = 0.018;
 
                         if (tempo == 24 || tempo == 36 || tempo == 48) {

@@ -1,5 +1,6 @@
 package Aula19;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,6 +20,8 @@ public class ArrayCRM {
             System.out.println("\n[1] para cadastrar um novo cliente");
             System.out.println("[2] para consultar um cliente");
             System.out.println("[3] para solicitar emprestimo");
+            System.out.println("[4] para limpar os dados");
+            System.out.println("[5] para alterar dados");
             System.out.println("[9] Para verificar a versão do sistema");
             System.out.println("[0] Para sair");
             resposta = input.nextInt();
@@ -96,6 +99,68 @@ public class ArrayCRM {
                     }
                     break;
 
+                case 4:
+
+                    System.out.println("Dados limpos");
+
+                    nomes.clear();
+                    idade.clear();
+                    cpf.clear();
+                    salario.clear();
+
+                case 5:
+
+                    System.out.println("Qual ID você quer alterar os dados?");
+                    int idAlterar = input.nextInt();
+
+                    if (idAlterar >= 0 && idAlterar < nomes.size()) {
+
+
+                    System.out.printf("Selecione oque quer mudar:\n");
+                    System.out.println("[1] Nome");
+                    System.out.println("[2] Idade");
+                    System.out.println("[3] CPF");
+                    System.out.println("[4] Salario");
+                    int opçãoAlterar = input.nextInt();
+
+                    input.nextLine();
+
+                    switch (opçãoAlterar) {
+
+
+                        case 1:
+                            System.out.println("Qual o novo nome");
+                            String novoNome = input.nextLine();
+                            nomes.set(idAlterar, novoNome);
+                            break;
+
+                        case 2:
+                            System.out.println("Qual a nova idade");
+                            int novaIdade = input.nextInt();
+                            idade.set(idAlterar, novaIdade);
+                            break;
+
+                        case 3:
+                            System.out.println("Qual a novo CPF");
+                            String novoCPF = input.nextLine();
+                            cpf.set(idAlterar, novoCPF);
+                            break;
+
+                        case 4:
+                            System.out.println("Qual o novo salario");
+                            Double novoSalario = input.nextDouble();
+                            salario.set(idAlterar, novoSalario);
+                            break;
+
+                        default:
+                            System.out.println("opção alterada Invalida");
+                            break;
+                    }
+                        System.out.println("Dado alterado com sucesso");
+                    }else {
+                        System.out.println("ID invalido");
+                    }
+                    break;
                 case 9:
                     System.out.println("Versão do sistema: 1.0");
                     break;

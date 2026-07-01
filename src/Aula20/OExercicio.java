@@ -273,5 +273,6 @@ public class OExercicio {
             }
 
 
+        }while (resposta != 5);
     }
 }

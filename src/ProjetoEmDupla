@@ -1,0 +1,355 @@
+package Aula20;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class ProjetoEmDupla {
+
+    public static void main(String[] args) {
+
+
+        Scanner input = new Scanner(System.in);
+
+        // Aqui a gente armazena os dados básicos do cliente
+        ArrayList<Integer> codigoCliente = new ArrayList<>();
+        ArrayList<String> nomeCliente = new ArrayList<>();
+
+        // aqui eu fiz na zoeira só pra competir para ver quem faz mais variavel kk
+        ArrayList<Double> vendasJaneiro = new ArrayList<>();
+        ArrayList<Double> vendasFevereiro = new ArrayList<>();
+        ArrayList<Double> vendasMarco = new ArrayList<>();
+        ArrayList<Double> vendasAbril = new ArrayList<>();
+        ArrayList<Double> vendasMaio = new ArrayList<>();
+        ArrayList<Double> vendasJunho = new ArrayList<>();
+        ArrayList<Double> vendasJulho = new ArrayList<>();
+        ArrayList<Double> vendasAgosto = new ArrayList<>();
+        ArrayList<Double> vendasSetembro = new ArrayList<>();
+        ArrayList<Double> vendasOutubro = new ArrayList<>();
+        ArrayList<Double> vendasNovembro = new ArrayList<>();
+        ArrayList<Double> vendasDezembro = new ArrayList<>();
+
+        int resposta;
+        int idCliente = 0;
+
+        System.out.println("bem vindo ao sistema");
+
+        // Aqui é o loop principal que faz com que o programa fique rodando até o usuário escolher sair
+        do {
+
+            System.out.println("[1] cadastrar cliente");
+            System.out.println("[2] registrar vendas");
+            System.out.println("[3] consultar cliente");
+            System.out.println("[4] relatorio geral");
+            System.out.println("[5] sair");
+
+            resposta = input.nextInt();
+            input.nextLine();
+
+            switch (resposta) {
+
+                // CASE 1: Cadastro de novo cliente
+                // Aqui a gente recebe os dados do cliente
+                case 1:
+
+                    System.out.println("id do cliente");
+                    System.out.println(idCliente);
+
+                    System.out.println("digite o codigo do cliente");
+                    codigoCliente.add(input.nextInt());
+                    input.nextLine();
+
+                    System.out.println("digite o nome do cliente");
+                    nomeCliente.add(input.nextLine());
+
+                    // Inicializa as listas de meses com 0.0 para esse novo cliente
+                    vendasJaneiro.add(0.0);
+                    vendasFevereiro.add(0.0);
+                    vendasMarco.add(0.0);
+                    vendasAbril.add(0.0);
+                    vendasMaio.add(0.0);
+                    vendasJunho.add(0.0);
+                    vendasJulho.add(0.0);
+                    vendasAgosto.add(0.0);
+                    vendasSetembro.add(0.0);
+                    vendasOutubro.add(0.0);
+                    vendasNovembro.add(0.0);
+                    vendasDezembro.add(0.0);
+
+                    System.out.println("cliente cadastrado");
+
+                    idCliente++;
+
+                    break;
+
+                // CASE 2: Registra uma venda pra um cliente específico em um mês específico
+                // Pega o ID do cliente, o mês, e os dados do produto
+                case 2:
+
+                    if (nomeCliente.size() == 0) {
+                        System.out.println("nenhum cliente cadastrado");
+                        break;
+                    }
+
+                    System.out.println("qual o id do cliente que deseja registrar a venda?");
+                    int idVenda = input.nextInt();
+                    input.nextLine();
+
+                    // verifica se o ID existe na lista
+                    if (idVenda >= 0 && idVenda < nomeCliente.size()) {
+
+                        System.out.println("digite o numero do mes (1 a 12)");
+                        int mes = input.nextInt();
+                        input.nextLine();
+
+                        System.out.println("digite o nome do produto");
+                        String produto = input.nextLine();
+
+                        System.out.println("digite o valor por produto");
+                        double valorProduto = input.nextDouble();
+                        input.nextLine();
+
+                        System.out.println("digite a quantidade de produtos");
+                        int quantidade = input.nextInt();
+                        input.nextLine();
+
+                        // Calcula o total da venda (preço unitário × quantidade)
+                        double totalVenda = valorProduto * quantidade;
+
+                        // Switch gigante que coloca o valor de venda no mês correto
+                        // (como em todo o resto do código vai ser tudo gigante mas lembrando, sou preguiçoso e gosto de fazer da forma mais facil e lembrando outra coisa...)
+                        // "Se funciona e n sabe como, n meche"
+                        // e tambem queria saber porque o comentario fico verde
+                        switch (mes) {
+                            case 1:
+                                vendasJaneiro.set(idVenda, totalVenda);
+                                break;
+                            case 2:
+                                vendasFevereiro.set(idVenda, totalVenda);
+                                break;
+                            case 3:
+                                vendasMarco.set(idVenda, totalVenda);
+                                break;
+                            case 4:
+                                vendasAbril.set(idVenda, totalVenda);
+                                break;
+                            case 5:
+                                vendasMaio.set(idVenda, totalVenda);
+                                break;
+                            case 6:
+                                vendasJunho.set(idVenda, totalVenda);
+                                break;
+                            case 7:
+                                vendasJulho.set(idVenda, totalVenda);
+                                break;
+                            case 8:
+                                vendasAgosto.set(idVenda, totalVenda);
+                                break;
+                            case 9:
+                                vendasSetembro.set(idVenda, totalVenda);
+                                break;
+                            case 10:
+                                vendasOutubro.set(idVenda, totalVenda);
+                                break;
+                            case 11:
+                                vendasNovembro.set(idVenda, totalVenda);
+                                break;
+                            case 12:
+                                vendasDezembro.set(idVenda, totalVenda);
+                                break;
+                            default:
+                                System.out.println("mes invalido");
+                                break;
+                        }
+                        // melhor não ir até o final dessa linha                                                                                                                                                                                                                                                                                                                                   eu to avisando ---->                                                                                                                                                                                                                                                                    EU AVISEI ------>                                                                                                                                                                                                                                                               A PESSOA QUE LER ESTE COMENTARIO DA O RABO
+                        System.out.println("venda registrada");
+
+                    } else {
+                        System.out.println("id invalido");
+                    }
+
+                    break;
+
+                // CASE 3: Consulta um cliente específico e mostra:
+                // Dados básicos (nome, código)
+                // Vendas mensais
+                // Total anual
+                // Média mensal
+                // Melhor e pior mês
+                case 3:
+
+                    if (nomeCliente.size() == 0) {
+                        System.out.println("nenhum cliente cadastrado");
+                        break;
+                    }
+
+                    System.out.println("qual o id do cliente para consultar?");
+                    int idConsulta = input.nextInt();
+                    input.nextLine();
+
+                    if (idConsulta >= 0 && idConsulta < nomeCliente.size()) {
+
+                        // Mostra informações do cliente
+                        System.out.println("nome do cliente: " + nomeCliente.get(idConsulta));
+                        System.out.println("codigo do cliente: " + codigoCliente.get(idConsulta));
+
+                        // Puxa todos os 12 meses de vendas do cliente escolhido
+                        double mes1 = vendasJaneiro.get(idConsulta);
+                        double mes2 = vendasFevereiro.get(idConsulta);
+                        double mes3 = vendasMarco.get(idConsulta);
+                        double mes4 = vendasAbril.get(idConsulta);
+                        double mes5 = vendasMaio.get(idConsulta);
+                        double mes6 = vendasJunho.get(idConsulta);
+                        double mes7 = vendasJulho.get(idConsulta);
+                        double mes8 = vendasAgosto.get(idConsulta);
+                        double mes9 = vendasSetembro.get(idConsulta);
+                        double mes10 = vendasOutubro.get(idConsulta);
+                        double mes11 = vendasNovembro.get(idConsulta);
+                        double mes12 = vendasDezembro.get(idConsulta);
+
+                        // Exibe todas as vendas mensais na tela
+                        System.out.println("vendas dos 12 meses:");
+                        System.out.println("mes 1: " + mes1);
+                        System.out.println("mes 2: " + mes2);
+                        System.out.println("mes 3: " + mes3);
+                        System.out.println("mes 4: " + mes4);
+                        System.out.println("mes 5: " + mes5);
+                        System.out.println("mes 6: " + mes6);
+                        System.out.println("mes 7: " + mes7);
+                        System.out.println("mes 8: " + mes8);
+                        System.out.println("mes 9: " + mes9);
+                        System.out.println("mes 10: " + mes10);
+                        System.out.println("mes 11: " + mes11);
+                        System.out.println("mes 12: " + mes12);
+
+                        // Calcula o total e a média do cliente
+                        double totalCliente = mes1 + mes2 + mes3 + mes4 + mes5 + mes6 + mes7 + mes8 + mes9 + mes10 + mes11 + mes12;
+                        double mediaCliente = totalCliente / 12.0;
+
+                        System.out.println("total vendido no ano");
+                        System.out.println(totalCliente);
+                        System.out.println("media mensal");
+                        System.out.println(mediaCliente);
+
+                        // Descobre qual foi o melhor mês comparando um a um
+                        // Desculpe, mas isso vai fazer os olhos de alguns arderem
+                        double maiorVenda = mes1;
+                        String mesMaior = "Janeiro";
+
+                        if (mes2 > maiorVenda) { maiorVenda = mes2; mesMaior = "Fevereiro"; }
+                        if (mes3 > maiorVenda) { maiorVenda = mes3; mesMaior = "Março"; }
+                        if (mes4 > maiorVenda) { maiorVenda = mes4; mesMaior = "Abril"; }
+                        if (mes5 > maiorVenda) { maiorVenda = mes5; mesMaior = "Maio"; }
+                        if (mes6 > maiorVenda) { maiorVenda = mes6; mesMaior = "Junho"; }
+                        if (mes7 > maiorVenda) { maiorVenda = mes7; mesMaior = "Julho"; }
+                        if (mes8 > maiorVenda) { maiorVenda = mes8; mesMaior = "Agosto"; }
+                        if (mes9 > maiorVenda) { maiorVenda = mes9; mesMaior = "Setembro"; }
+                        if (mes10 > maiorVenda) { maiorVenda = mes10; mesMaior = "Outubro"; }
+                        if (mes11 > maiorVenda) { maiorVenda = mes11; mesMaior = "Novembro"; }
+                        if (mes12 > maiorVenda) { maiorVenda = mes12; mesMaior = "Dezembro"; }
+
+                        // Descobre qual foi o pior mês do mesmo jeito do melhor do mes
+                        // (Tava com preguiça de arrumar um jeito mais bonito então fiz do mesmo jeito que o do melhor do mes)
+                        double menorVenda = mes1;
+                        String mesMenor = "Janeiro";
+
+                        if (mes2 < menorVenda) { menorVenda = mes2; mesMenor = "Fevereiro"; }
+                        if (mes3 < menorVenda) { menorVenda = mes3; mesMenor = "Março"; }
+                        if (mes4 < menorVenda) { menorVenda = mes4; mesMenor = "Abril"; }
+                        if (mes5 < menorVenda) { menorVenda = mes5; mesMenor = "Maio"; }
+                        if (mes6 < menorVenda) { menorVenda = mes6; mesMenor = "Junho"; }
+                        if (mes7 < menorVenda) { menorVenda = mes7; mesMenor = "Julho"; }
+                        if (mes8 < menorVenda) { menorVenda = mes8; mesMenor = "Agosto"; }
+                        if (mes9 < menorVenda) { menorVenda = mes9; mesMenor = "Setembro"; }
+                        if (mes10 < menorVenda) { menorVenda = mes10; mesMenor = "Outubro"; }
+                        if (mes11 < menorVenda) { menorVenda = mes11; mesMenor = "Novembro"; }
+                        if (mes12 < menorVenda) { menorVenda = mes12; mesMenor = "Dezembro"; }
+
+                        System.out.println("mes de maior venda: " + mesMaior + " (" + maiorVenda + ")");
+                        System.out.println("mes de menor venda: " + mesMenor + " (" + menorVenda + ")");
+
+                    } else {
+                        System.out.println("id invalido");
+                    }
+
+                    break;
+
+                // CASE 4: Relatório geral do sistema
+                // Soma TODAS as vendas de TODOS os clientes e mostra:
+                // Total geral anual
+                // Média mensal geral
+                // Cliente com maior venda total
+                // Cliente com menor venda total
+                case 4:
+
+                    if (nomeCliente.size() == 0) {
+                        System.out.println("nenhum cliente cadastrado");
+                        break;
+                    }
+
+                    double totalGeralAno = 0;
+                    double maiorVendaGeral = -1.0;
+                    double menorVendaGeral = 99999999.0;
+                    String clienteMaior = "Nenhum";
+                    String clienteMenor = "Nenhum";
+
+                    // Loop que passa por cada cliente cadastrado
+                    // e calcula o total de vendas dele ao longo do ano
+                    for (int i = 0; i < nomeCliente.size(); i++) {
+
+                        double mes1 = vendasJaneiro.get(i);
+                        double mes2 = vendasFevereiro.get(i);
+                        double mes3 = vendasMarco.get(i);
+                        double mes4 = vendasAbril.get(i);
+                        double mes5 = vendasMaio.get(i);
+                        double mes6 = vendasJunho.get(i);
+                        double mes7 = vendasJulho.get(i);
+                        double mes8 = vendasAgosto.get(i);
+                        double mes9 = vendasSetembro.get(i);
+                        double mes10 = vendasOutubro.get(i);
+                        double mes11 = vendasNovembro.get(i);
+                        double mes12 = vendasDezembro.get(i);
+
+                        double totalDoCliente = mes1 + mes2 + mes3 + mes4 + mes5 + mes6 + mes7 + mes8 + mes9 + mes10 + mes11 + mes12;
+                        totalGeralAno = totalGeralAno + totalDoCliente;
+
+                        // Verifica se esse cliente teve a maior ou menor venda total
+                        if (totalDoCliente > maiorVendaGeral) {
+                            maiorVendaGeral = totalDoCliente;
+                            clienteMaior = nomeCliente.get(i);
+                        }
+
+                        if (totalDoCliente < menorVendaGeral) {
+                            menorVendaGeral = totalDoCliente;
+                            clienteMenor = nomeCliente.get(i);
+                        }
+                    }
+
+                    // Calcula a média mensal de todas as vendas do ano
+                    double mediaMensalGeral = totalGeralAno / 12.0;
+
+                    System.out.println("total vendido no ano");
+                    System.out.println(totalGeralAno);
+
+                    System.out.println("media mensal de vendas");
+                    System.out.println(mediaMensalGeral);
+
+                    System.out.println("maior venda registrada: " + maiorVendaGeral + " (cliente: " + clienteMaior + ")");
+                    System.out.println("menor venda registrada: " + menorVendaGeral + " (cliente: " + clienteMenor + ")");
+
+                    break;
+
+                // eu tenho que realmente explicar o que isso faz?
+                case 5:
+                    System.out.println("programa encerrado");
+                    break;
+
+                // é por isso que na caixa do ovo vem escrito Ovo
+                default:
+                    System.out.println("opção invalida");
+                    break;
+            }
+
+        } while (resposta != 5);
+
+    }
+}
